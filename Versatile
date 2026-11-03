@@ -1,1 +1,15 @@
+repeat task.wait() until game.CoreGui:FindFirstChild('RobloxPromptGui')
 
+local lp,po,ts = game:GetService('Players').LocalPlayer,game.CoreGui.RobloxPromptGui.promptOverlay,game:GetService('TeleportService')
+
+-- Place ID for Anime Origins
+local targetPlaceId = 106484206883664
+
+po.ChildAdded:connect(function(a)
+    if a.Name == 'ErrorPrompt' then
+        while true do
+            ts:Teleport(targetPlaceId)
+            task.wait(2)
+        end
+    end
+end)
